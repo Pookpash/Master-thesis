@@ -8,9 +8,9 @@ simple2s1v <- function(n, s1to1prob, s2to2prob, mu, sigma, nanim){
   stateseq <- createstateseq(n,tpm,nanim)
   data <- rnorm(n,mu[stateseq],sigma[stateseq])
   id <- sort(c(rep(seq(1,nanim,by=1),n)))
-  data <- cbind(id,data)
+  data <- cbind(id,data,stateseq)
   data <- as.data.frame(data)
-  colnames(data) <- c("id","varnorm")
+  colnames(data) <- c("id","varnorm","state")
   return(data)
 }
 
